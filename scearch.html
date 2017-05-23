@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Search </h2>
+<input type="text" name="users" id="users" onkeyup="myFunction()" placeholder="Search..">   <input type="button" id="toggler" value="Add it" onClick="addtext();" />
+<p id="demo"></p>
+
+<script>
+var Bike = ["Anchor", "Bianchi", "BMC","Cannondale"];
+var Final = "";
+
+
+function myFunction() {
+	var x = document.getElementById("users").value;
+    for(var i = 0; i < Bike.length; i++){
+    	if(Bike[i].indexOf(x) != -1){
+        		Final += Bike[i] + "<br>";
+   		}
+        document.getElementById('toggler').style.visibility = 'hidden';
+	}
+    document.getElementById("demo").innerHTML = Final;
+    if(Final==""){
+    	document.getElementById('toggler').style.visibility = 'visible';
+    }
+    Final = "";
+
+
+
+}
+myFunction();
+function addtext(){
+	var x = document.getElementById("users").value;
+	Bike.push(x);
+    document.getElementById("users").value ="";
+    myFunction();
+}
+
+
+</script>
+
+</body>
+</html>
