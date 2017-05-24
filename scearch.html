@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
 <body>
-
 <h2>Search </h2>
+//ช่องinput ที่เป็นประเภท text และ button	
 <input type="text" name="users" id="users" onkeyup="myFunction()" placeholder="Search..">   <input type="button" id="toggler" value="Add it" onClick="addtext();" />
+// demo คือ id นำ id ไปใช้ระบุตำแหน่งว่ามาจากหรือให้ลงจุดใด
 <p id="demo"></p>
-
 <script>
-var Bike = ["Anchor", "Bianchi", "BMC","Cannondale"];
-var Final = "";
-
-
-function myFunction() {
+var Bike = ["Anchor", "Bianchi", "BMC","Cannondale"];		//กำหนด ตัวแปรเข้าไปใน array
+var Final = ""; 						//เป็นตัวแปรไว้เก็บค่าที่จะนำไปแสดงตอนสุดท้าย
+function myFunction() {						//ฟังก์ชันที่ใช้ตรวจสอบคำโดย ใช้ indexOf
 	var x = document.getElementById("users").value;
     for(var i = 0; i < Bike.length; i++){
     	if(Bike[i].indexOf(x) != -1){
@@ -20,24 +18,18 @@ function myFunction() {
         document.getElementById('toggler').style.visibility = 'hidden';
 	}
     document.getElementById("demo").innerHTML = Final;
-    if(Final==""){
+    if(Final==""){						//เมื่อไม่เจอคำจะทำให้เปิดปุ่มเพิ่มขึ้นมา
     	document.getElementById('toggler').style.visibility = 'visible';
     }
     Final = "";
-
-
-
 }
 myFunction();
-function addtext(){
+function addtext(){ 						//เมื่อกดปุ่มจะทำงานที่ฟังก์ชันนี้
 	var x = document.getElementById("users").value;
 	Bike.push(x);
     document.getElementById("users").value ="";
     myFunction();
 }
-
-
 </script>
-
 </body>
 </html>
